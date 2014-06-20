@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <title>Learning AngularJS with Named Entity Annotation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script src="maincontroller.js" type="text/javascript"></script>
+    <script src="services.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
+        <input type='text' ng-model='searchText' />
+        <ul>
+            <li ng-repeat='place in places | filter:searchText'>#{{place.label}} {{place.source}} </li>
+        </ul>
+        <input type='text' ng-model='newPlace' />
+        <button ng-click='addNew()'>Add</button>
+
+
+    <table>
+    <thead>
+      <tr><th colspan="4">Pleiades Places</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="place in pleiadesPlaces">
+        <td>{{$index + 1}}</td>
+        <td>
+          {{place.label}}
+        </td>
+        <td>{{place.source}}</td>
+        <td>{{place.altLabels}}</td>
+        <td>{{place.comment}}</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+
+
+
+</body>
+</html>
